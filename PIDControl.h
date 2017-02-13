@@ -11,6 +11,7 @@ public:
 	void setLimits(float lowerLimit, float upperLimit);//makes sure that the outputs don't exceed the specified min/max.
 	void setMaxDerivative(float maxDer);//sets the maximum value that the derivative is allowed.
 	void setMinimumAbsOutputValue(float minOutValue);// motors have a minimum voltage that will move them.
+	void setMaximumAbsOutputValue(float MaxOutValue);
 	float getoutput(sensorValue);//returns the output
 private:
 	float _derivative(float err1, float err2, float time1, float time2);
@@ -24,8 +25,9 @@ private:
 	float _maxDerivative = 1000; //prevents excessive controller output due to error. will need to replace with filters.
 	float _maxIntegral = 1000; //prevents startup integral from dominating the response.
 	float _absMinOut = 1;//default minimum motor value to move.
+	float _absMaxOutput = 1000;//default saturation value.
 	float _ensureValidOutput(float intendedOutput);//checks to ensure that we're not sending nonsense.
-	float _getError(float sensorValue)
-
-
+	float _getError(float sensorValue);
+	float _prevErr = 0;
+	float _prevTime = 0;
 }
