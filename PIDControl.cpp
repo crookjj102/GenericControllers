@@ -89,7 +89,7 @@ float PIDControl::_ensureValidOutput(float intendedOutput)
 	else
 	{
 
-		return 0;
+		return intendedOutput;
 	}
 }
 
