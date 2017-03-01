@@ -96,7 +96,7 @@ float PIDControl::_ensureValidOutput(float intendedOutput)
 float PIDControl::getoutput(sensorValue, timeStamp)
 {
 	float currErr = getErr(sensorValue);
-	float out = _kp * currErr + _ki * integral(_prevErr, currErr, _prevTime, timeStamp) + kd * derivative(_prevErr, currErr, _prevErr, timeStamp);
+	float out = _kp * currErr + _ki * integral(_prevErr, currErr, _prevTime, timeStamp) + kd * derivative(_prevErr, currErr, _prevTime, timeStamp);
 	_prevErr = currErr;
 	_prevTime = timeStamp;
 	return _ensureValidOuotput(out);
