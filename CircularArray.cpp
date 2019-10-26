@@ -63,7 +63,7 @@ namespace filters{
 	{
 		// compute index from relative idx
 		int tempIndex = (index + idx) % capacity;
-		tempIndex >= 0 ? tempIndex : capacity - tempIndex;
+		tempIndex >= 0 ? tempIndex : capacity + tempIndex;
 		
 		// return a reference to the value
 		return values[ tempIndex ];
